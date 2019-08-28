@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="686.0" prefWidth="414.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dndhealthtracker.FXMLDocumentController">
+   <children>
+      <TabPane prefHeight="692.0" prefWidth="414.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Create Creatures">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="669.0" prefWidth="414.0">
+                     <children>
+                        <TextField fx:id="enterName" layoutX="78.0" layoutY="36.0" />
+                        <Label layoutX="28.0" layoutY="41.0" text="Name" />
+                        <Label layoutX="109.0" layoutY="110.0" text="Resistance/Weakness " />
+                        <Label layoutX="28.0" layoutY="182.0" text="Bludgeoning" />
+                        <Label layoutX="58.0" layoutY="211.0" text="Piercing" />
+                        <Label layoutX="57.0" layoutY="243.0" text="Slashing" />
+                        <Label layoutX="58.0" layoutY="414.0" text="Thunder" />
+                        <Label layoutX="53.0" layoutY="383.0" text="Lightning" />
+                        <Label layoutX="88.0" layoutY="351.0" text="Fire" />
+                        <Label layoutX="85.0" layoutY="292.0" text="Acid" />
+                        <Label layoutX="84.0" layoutY="320.0" text="Cold" />
+                        <Label layoutX="81.0" layoutY="493.0" text="Force" />
+                        <Label layoutX="58.0" layoutY="572.0" text="Radiant" />
+                        <Label layoutX="71.0" layoutY="445.0" text="Poison" />
+                        <Label layoutX="56.0" layoutY="601.0" text="Necrotic" />
+                        <Label layoutX="69.0" layoutY="522.0" text="Psychic" />
+                        <TextField fx:id="enterHealth" layoutX="78.0" layoutY="67.0" />
+                        <TextField fx:id="enterB" layoutX="122.0" layoutY="177.0" prefHeight="31.0" prefWidth="120.0" />
+                        <TextField fx:id="enterP" layoutX="122.0" layoutY="206.0" prefHeight="31.0" prefWidth="120.0" />
+                        <TextField fx:id="enterS" layoutX="122.0" layoutY="238.0" prefHeight="31.0" prefWidth="120.0" />
+                        <TextField fx:id="enterAcid" layoutX="122.0" layoutY="285.0" prefHeight="31.0" prefWidth="120.0" />
+                        <TextField fx:id="enterCold" layoutX="122.0" layoutY="315.0" prefHeight="31.0" prefWidth="120.0" />
+                        <TextField fx:id="enterFire" layoutX="122.0" layoutY="346.0" prefHeight="31.0" prefWidth="120.0" />
+                        <TextField fx:id="enterLightning" layoutX="122.0" layoutY="378.0" prefHeight="31.0" prefWidth="120.0" />
+                        <TextField fx:id="enterThunder" layoutX="122.0" layoutY="409.0" prefHeight="31.0" prefWidth="120.0" />
+                        <TextField fx:id="enterPoison" layoutX="122.0" layoutY="440.0" prefHeight="31.0" prefWidth="120.0" />
+                        <TextField fx:id="enterForce" layoutX="122.0" layoutY="488.0" prefHeight="31.0" prefWidth="120.0" />
+                        <TextField fx:id="enterPsychic" layoutX="122.0" layoutY="517.0" prefHeight="31.0" prefWidth="120.0" />
+                        <TextField fx:id="enterRadiant" layoutX="122.0" layoutY="567.0" prefHeight="31.0" prefWidth="120.0" />
+                        <TextField fx:id="enterNecrotic" layoutX="122.0" layoutY="596.0" prefHeight="31.0" prefWidth="120.0" />
+                        <Label layoutX="28.0" layoutY="131.0" text="Put Resistance as positive, Weakness as negative" />
+                        <Button layoutX="311.0" layoutY="36.0" mnemonicParsing="false" onAction="#saveCreate" text="Save" />
+                        <Button layoutX="310.0" layoutY="596.0" mnemonicParsing="false" onAction="#clearCreate" text="Clear" />
+                        <Label layoutX="24.0" layoutY="72.0" text="Health" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Use Creatures">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="useList" layoutX="16.0" layoutY="59.0" onAction="#useView" onHidden="#useView" onShown="#updateUseList" prefHeight="31.0" prefWidth="382.0" visibleRowCount="10" />
+                        <Button layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleAutoRemove" text="Toggle" />
+                        <Label fx:id="useAutoRemove" layoutX="75.0" layoutY="19.0" text="Removing automatically on death" />
+                        <Button layoutX="334.0" layoutY="14.0" mnemonicParsing="false" onAction="#useRemove" text="Remove" />
+                        <TextField fx:id="useHealth" layoutX="16.0" layoutY="140.0" />
+                        <TextField fx:id="useDamage" layoutX="101.0" layoutY="190.0" promptText="Enter Damage" />
+                        <RadioButton fx:id="useB" layoutX="28.0" layoutY="244.0" mnemonicParsing="false" text="Bludgeoning">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="damage" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="useP" layoutX="28.0" layoutY="265.0" mnemonicParsing="false" text="Piercing" toggleGroup="$damage" />
+                        <RadioButton fx:id="useS" layoutX="28.0" layoutY="286.0" mnemonicParsing="false" text="Slashing" toggleGroup="$damage" />
+                        <RadioButton fx:id="useForce" layoutX="166.0" layoutY="244.0" mnemonicParsing="false" text="Force" toggleGroup="$damage" />
+                        <RadioButton fx:id="usePyschic" layoutX="166.0" layoutY="265.0" mnemonicParsing="false" text="Psychic" toggleGroup="$damage" />
+                        <RadioButton fx:id="useRadiant" layoutX="262.0" layoutY="244.0" mnemonicParsing="false" text="Radiant" toggleGroup="$damage" />
+                        <RadioButton fx:id="useNecrotic" layoutX="262.0" layoutY="265.0" mnemonicParsing="false" text="Necrotic" toggleGroup="$damage" />
+                        <RadioButton fx:id="useAcid" layoutX="28.0" layoutY="332.0" mnemonicParsing="false" text="Acid" toggleGroup="$damage" />
+                        <RadioButton fx:id="useCold" layoutX="28.0" layoutY="352.0" mnemonicParsing="false" text="Cold" toggleGroup="$damage" />
+                        <RadioButton fx:id="useFire" layoutX="28.0" layoutY="372.0" mnemonicParsing="false" text="Fire" toggleGroup="$damage" />
+                        <RadioButton fx:id="useLightning" layoutX="115.0" layoutY="332.0" mnemonicParsing="false" text="Lightning" toggleGroup="$damage" />
+                        <RadioButton fx:id="useThunder" layoutX="115.0" layoutY="352.0" mnemonicParsing="false" text="Thunder" toggleGroup="$damage" />
+                        <RadioButton fx:id="usePoison" layoutX="115.0" layoutY="372.0" mnemonicParsing="false" text="Poison" toggleGroup="$damage" />
+                        <Button layoutX="288.0" layoutY="334.0" mnemonicParsing="false" onAction="#useApply" prefHeight="61.0" prefWidth="77.0" text="Apply" />
+                        <Label fx:id="useResult" layoutX="52.0" layoutY="416.0" text="This will show how much damage was applied" textAlignment="CENTER" />
+                        <RadioButton fx:id="useTrue" layoutX="222.0" layoutY="352.0" mnemonicParsing="false" text="True" toggleGroup="$damage" />
+                        <TextField fx:id="useHeal" layoutX="28.0" layoutY="467.0" promptText="Enter Heal Amount" />
+                        <Button layoutX="234.0" layoutY="467.0" mnemonicParsing="false" onAction="#useHeal" prefHeight="31.0" prefWidth="144.0" text="Heal" />
+                        <TextField fx:id="useTempHealth" layoutX="213.0" layoutY="140.0" />
+                        <Label layoutX="203.0" layoutY="145.0" text="+" />
+                        <Button layoutX="234.0" layoutY="506.0" mnemonicParsing="false" onAction="#useTempHeal" prefHeight="31.0" prefWidth="144.0" text="Add Temp Health" />
+                        <TextField fx:id="useTempHeal" layoutX="28.0" layoutY="506.0" promptText="Enter Temp Health" />
+                        <Button layoutX="28.0" layoutY="561.0" mnemonicParsing="false" onAction="#saveList" prefHeight="31.0" prefWidth="352.0" text="Save Current List" />
+                        <Button layoutX="29.0" layoutY="617.0" mnemonicParsing="false" onAction="#deleteList" prefHeight="31.0" prefWidth="352.0" text="Delete Current Save" />
+                        <Label fx:id="useSave" layoutX="160.0" layoutY="595.0" text="Not Saved" />
+                        <Button layoutX="16.0" layoutY="96.0" mnemonicParsing="false" onAction="#popoutCreature" text="Pop out">
+                           <tooltip>
+                              <Tooltip text="Creates a tiny popout for this creature \nContains minimal functionality" />
+                           </tooltip>
+                        </Button>
+                        <Button layoutX="262.0" layoutY="96.0" mnemonicParsing="false" onAction="#closePopouts" text="Close All Popouts" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

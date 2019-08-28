@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="58.0" prefWidth="296.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="popout.FXMLDocumentController">
+   <children>
+      <TextField fx:id="healthField" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="72.0" promptText="Health" />
+      <TextField fx:id="damageField" layoutX="126.0" layoutY="14.0" prefHeight="31.0" prefWidth="86.0" promptText="Damage">
+         <tooltip>
+            <Tooltip text="Put damage postive, healing negative. \nWon't heal past max health \nUse full app for temp health" />
+         </tooltip>
+      </TextField>
+      <Button layoutX="223.0" layoutY="14.0" mnemonicParsing="false" onAction="#applyDamage" text="Apply" />
+   </children>
+</AnchorPane>
