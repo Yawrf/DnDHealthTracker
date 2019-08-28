@@ -288,9 +288,9 @@ public class FXMLDocumentController implements Initializable {
         try {
             Creature c = creatureList.get(useList.getSelectionModel().getSelectedIndex());
             
-            FXMLLoader loader = new FXMLLoader(popout.Popout.class.getResource("FXMLDocument.fxml"));
+            FXMLLoader loader = new FXMLLoader(popoutTracker.Popout.class.getResource("FXMLDocument.fxml"));
             Parent root = loader.load();
-            popout.FXMLDocumentController popoutController = (popout.FXMLDocumentController) loader.getController();
+            popoutTracker.FXMLDocumentController popoutController = (popoutTracker.FXMLDocumentController) loader.getController();
             
             Stage stage = new Stage();
             stage.setAlwaysOnTop(true);
